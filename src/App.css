@@ -1,0 +1,63 @@
+/* App.css */
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #2196f3;
+  padding: 20px;
+  color: white;
+}
+
+h1 {
+  margin: 0;
+  margin-bottom: 20px; /* Add margin to create a gap */
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.form-container {
+  margin-top: 10px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid black;
+  border-radius: 4px 0 0 4px;
+  /* width: 30%; */
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  /* width: 12%; */
+}
+
+.weather-info {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  height: 7rem;
+}
+
+.blank {
+  text-align: center;
+  font-size: 2rem;
+}
+
