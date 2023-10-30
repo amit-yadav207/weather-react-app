@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import RecentSearch from './components/RecentSeache';
+import RecentSearch from './components/RecentSearch';
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
