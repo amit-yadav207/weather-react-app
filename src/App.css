@@ -2,6 +2,7 @@
 .App {
   text-align: center;
   font-family: Arial, sans-serif;
+  min-height: 99.8vh;
 }
 
 header {
@@ -12,7 +13,7 @@ header {
 
 h1 {
   margin: 0;
-  margin-bottom: 20px; /* Add margin to create a gap */
+  margin-bottom: 20px;
 }
 
 section {
@@ -30,7 +31,6 @@ input {
   font-size: 16px;
   border: 1px solid black;
   border-radius: 4px 0 0 4px;
-  /* width: 30%; */
 }
 
 button {
@@ -40,7 +40,6 @@ button {
   border: none;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
-  /* width: 12%; */
 }
 
 .weather-info {
@@ -61,3 +60,53 @@ img {
   font-size: 2rem;
 }
 
+.dark-mode {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid black;
+}
+
+/* Add styles for recent searches */
+.recent-searches {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.recent-searches h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.recent-searches ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.recent-searches li {
+  font-size: 1.2rem;
+  margin: 0 10px;
+  text-transform: capitalize;
+  cursor: pointer; /* Add cursor pointer */
+  transition: all 0.3s; /* Add transition effect */
+}
+
+/* Style for the dark mode toggle icon */
+header i {
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: transform 0.3s; /* Add transition effect */
+}
+
+/* Style when clicked */
+.recent-searches li:hover {
+  color: #2196f3;
+}
+
+/* Rotate the dark mode icon when toggling */
+header i:hover {
+  transform: rotate(180deg);
+  color: #ff6600; /* Change the background color when hovered */
+}
