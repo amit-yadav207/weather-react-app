@@ -1,26 +1,19 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import Weather from './components/Weather';
-
-function RecentSearch({ data, region }) {
-  if (data && data.cod === 200) {
-    return (
-      <div>
-        <Weather data={data} city={region} />
-      </div>
-    );
-  } else {
-    return <p className='blank'>Enter a location to get weather information</p>;
-  }
-}
+import RecentSearch from './components/RecentSeache';
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [region, setRegion] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [recentSearches, setRecentSearches] = useState([]);
+  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [recentSearches, setRecentSearches] = useState(() => JSON.parse(localStorage.getItem('recentSearches')) || []);
+  const [error, setError] = useState(null); // State for error message
+
+  // Save recent searches to local storage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
+  }, [recentSearches]);
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -36,35 +29,41 @@ function App() {
 
       if (data.cod === 200) {
         setWeatherData(data);
+        setError(null); // Clear any previous errors
       } else {
-        alert('City not found. Please try again.');
+        setError('City not found. Please try again.');
       }
     } catch (error) {
       console.error('An error occurred while fetching data:', error);
+      setError('An error occurred. Please try again later.');
     }
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (searchQuery.trim() === '') {
-      alert('Please enter a city/country name.');
+      setError('Please enter a city/country name.');
       return;
     }
     const formattedSearchQuery = searchQuery.charAt(0).toUpperCase() + searchQuery.slice(1);
-    setRegion(formattedSearchQuery);
 
-    // Check if the location is already in the recent searches
     if (!recentSearches.includes(formattedSearchQuery)) {
-      fetchWeatherData(formattedSearchQuery); // Only fetch data if it's not in recent searches
       setRecentSearches((prevSearches) => [formattedSearchQuery, ...prevSearches.slice(0, 3)]);
     }
-
+    setRegion(formattedSearchQuery);
     setSearchQuery('');
+    fetchWeatherData(formattedSearchQuery);
   }
 
   const handleRecentSearchClick = (search) => {
     fetchWeatherData(search);
     setRegion(search);
+  }
+
+  // Handle double-click to remove recent search
+  const handleRecentSearchDoubleClick = (search) => {
+    const updatedSearches = recentSearches.filter((item) => item !== search);
+    setRecentSearches(updatedSearches);
   }
 
   return (
@@ -91,13 +90,18 @@ function App() {
             Search <i className="fas fa-search"></i>
           </button>
         </form>
+        {error && <p className="error">{error}</p>}
       </div>
       {recentSearches.length > 0 && (
         <div className="recent-searches">
           <h2>Recent Searches:</h2>
           <ul>
             {recentSearches.map((search, index) => (
-              <li key={index} onClick={() => handleRecentSearchClick(search)}>
+              <li
+                key={index}
+                onClick={() => handleRecentSearchClick(search)}
+                onDoubleClick={() => handleRecentSearchDoubleClick(search)}
+              >
                 {search}
               </li>
             ))}
@@ -110,5 +114,3 @@ function App() {
 }
 
 export default App;
-
-
