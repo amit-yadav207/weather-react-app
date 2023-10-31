@@ -76,7 +76,7 @@ function App() {
         ) : (
           <i className="fas fa-moon" onClick={toggleDarkMode}></i>
         )}
-        <span>{`${isDarkMode ? 'light mode' : 'dark mode'}`}</span>
+        <span onClick={toggleDarkMode}>{`${isDarkMode ? 'light mode' : 'dark mode'}`}</span>
       </header>
       <div className="form-container">
         <form onSubmit={handleSubmit}>
@@ -110,6 +110,7 @@ function App() {
           </ul>
         </div>
       )}
+
       <RecentSearch data={weatherData} region={region} />
     </div>
   );
