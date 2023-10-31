@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import RecentSearch from './components/RecentSearch';
 
+
 function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [region, setRegion] = useState('');
@@ -75,6 +76,7 @@ function App() {
         ) : (
           <i className="fas fa-moon" onClick={toggleDarkMode}></i>
         )}
+        <span>{`${isDarkMode ? 'light mode' : 'dark mode'}`}</span>
       </header>
       <div className="form-container">
         <form onSubmit={handleSubmit}>
@@ -114,3 +116,6 @@ function App() {
 }
 
 export default App;
+
+
+

@@ -111,3 +111,28 @@ header i:hover {
   color: #ff6600; /* Change the background color when hovered */
 }
 
+
+
+
+
+/* CSS */
+/* Style the dark mode toggle icon */
+header i {
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: transform 0.3s; /* Add transition effect */
+}
+
+/* Style the span text */
+header span {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 1rem; /* Adjust the font size as needed */
+  transition: transform 0.3s; /* Add transition effect */
+}
+
+/* Move the span text closer to the icon when dark mode is active */
+header.dark-mode span {
+  transform: translateY(20px), translateX(-20px); /* Adjust the value to position the text as desired */
+}
