@@ -16,39 +16,32 @@ h1 {
   margin-bottom: 20px;
 }
 
-section {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-
-}
-
 .form-container {
-  margin-top: 10px;
+  margin-top: .5rem;
 }
 
 input {
-  padding: 10px;
-  font-size: 16px;
+  padding: 0.625rem;
+  font-size: 1rem;
   border: 1px solid black;
   border-radius: 4px 0 0 4px;
-  border: .1px solid black;
+  border: 0.1px solid black;
   border-right-width: 0px;
   outline: none;
 }
 
-
-
 button {
-  padding: 11.5px 20px;
+  /* padding: 11.5px 20px; */
+  padding: 0.635rem;
+  font-size: 1rem;
   background-color: #2196f3;
   color: white;
   border: none;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
   transition: background-color 0.3s; /* Smooth transition effect */
-  border: .1px solid black;
-  /* border-left-width: 0px; */
+  border: 0.1px solid black;
+  border-left-width: 0px;
 }
 
 /* Hover effect */
@@ -57,24 +50,20 @@ button:hover {
 }
 
 
-.weather-info {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 20px;
-  margin-top: 20px;
-  
-}
 
 img {
   display: block;
   margin: 0 auto;
-  height: 7rem;
+  height: 6rem;
 }
 
-.blank {
-  text-align: center;
-  font-size: 2rem;
+.weather-info {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 0px;
+  font-size: 1rem;
 }
+
 
 .dark-mode {
   background-color: #000;
@@ -84,13 +73,13 @@ img {
 
 /* Add styles for recent searches */
 .recent-searches {
-  margin-top: 20px;
+  margin-top: 0rem;
   text-align: center;
 }
 
 .recent-searches h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+  font-size: 1.3rem;
+  margin-bottom: 0rem;
 }
 
 .recent-searches ul {
@@ -98,22 +87,15 @@ img {
   display: flex;
   justify-content: center;
   padding: 0;
+  margin-top: .5rem;
 }
 
 .recent-searches li {
-  font-size: 1.2rem;
-  margin: 0 10px;
+  font-size: 1rem;
+  margin: 0 0.625rem;
   text-transform: capitalize;
   cursor: pointer; /* Add cursor pointer */
   transition: all 0.3s; /* Add transition effect */
-}
-
-/* Style for the dark mode toggle icon */
-header i {
-  font-size: 2rem;
-  cursor: pointer;
-  margin-left: 10px;
-  transition: transform 0.3s; /* Add transition effect */
 }
 
 /* Style when clicked */
@@ -127,22 +109,28 @@ header i:hover {
   color: #ff6600; /* Change the background color when hovered */
 }
 
-
-
-
-
 /* CSS */
 /* Style the dark mode toggle icon */
 header i {
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
   transition: transform 0.3s; /* Add transition effect */
+}
+
+header h1 i {
+  font-size: 2rem;
 }
 
 /* Style the span text */
 header span {
   display: block;
-  font-size: 1rem; /* Adjust the font size as needed */
+  font-size: 0.7rem; /* Adjust the font size as needed */
   transition: transform 0.3s; /*Add transition effect*/
   cursor: pointer;
+}
+
+.blank {
+  text-align: center;
+  font-size: 1.4rem;
+  margin-top: 3rem;
 }
