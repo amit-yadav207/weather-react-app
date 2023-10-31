@@ -1,10 +1,10 @@
 import Weather from './Weather';
-
 function RecentSearch({ data, region }) {
   if (data && data.cod === 200) {
     return (
       <div>
         <Weather data={data} city={region} />
+
       </div>
     );
   } else {
