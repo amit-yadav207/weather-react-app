@@ -20,6 +20,7 @@ section {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+
 }
 
 .form-container {
@@ -31,22 +32,37 @@ input {
   font-size: 16px;
   border: 1px solid black;
   border-radius: 4px 0 0 4px;
+  border: .1px solid black;
+  border-right-width: 0px;
+  outline: none;
 }
 
+
+
 button {
-  padding: 12px 20px;
+  padding: 11.5px 20px;
   background-color: #2196f3;
   color: white;
   border: none;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition effect */
+  border: .1px solid black;
+  /* border-left-width: 0px; */
 }
+
+/* Hover effect */
+button:hover {
+  background-color: #0e7ac4; /* Change the background color on hover */
+}
+
 
 .weather-info {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 20px;
   margin-top: 20px;
+  
 }
 
 img {

@@ -10,11 +10,13 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [recentSearches, setRecentSearches] = useState(() => JSON.parse(localStorage.getItem('recentSearches')) || []);
   const [error, setError] = useState(null); // State for error message
+  const [doubleClickTimer, setDoubleClickTimer] = useState(null);
 
   // Save recent searches to local storage whenever it changes
   useEffect(() => {
     localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
   }, [recentSearches]);
+
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
@@ -57,14 +59,33 @@ function App() {
   }
 
   const handleRecentSearchClick = (search) => {
-    fetchWeatherData(search);
-    setRegion(search);
+
+
+    if (doubleClickTimer) {
+      clearTimeout(doubleClickTimer); // Clear the timer if it's a double click
+    }
+    setDoubleClickTimer(setTimeout(() => {
+      // Handle single click action here
+      fetchWeatherData(search);
+      setRegion(search);
+    }, 210)); // Adjust the time interval as needed
+
   }
 
   // Handle double-click to remove recent search
   const handleRecentSearchDoubleClick = (search) => {
+    if (doubleClickTimer) {
+      clearTimeout(doubleClickTimer); // Clear the timer if it's a double click
+    }
     const updatedSearches = recentSearches.filter((item) => item !== search);
     setRecentSearches(updatedSearches);
+    const anotherCity = updatedSearches[0];
+    if (anotherCity) {
+      setRegion(anotherCity);
+      fetchWeatherData(anotherCity);
+    } else {
+      setRegion(null);
+    }
   }
 
   return (
