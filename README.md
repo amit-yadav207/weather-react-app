@@ -6,6 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # live preview 
 <img width="960" alt="image" src="https://github.com/amit-yadav207/weather-react-app/assets/99413482/c579bc74-25ed-43b8-84bb-2a08086c468a">
+<img width="960" alt="image" src="https://github.com/amit-yadav207/weather-react-app/assets/99413482/09cb93c6-6ac9-4dd1-aa49-9a0c3d86ebca">
 
 ## Available Scripts
 
